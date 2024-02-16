@@ -1,8 +1,13 @@
 // const express = require('express')
 import express from 'express'
 import {PORT, HOST} from './config.js'
+import userRouter from './routers/userRouter.js'
+import productRouter from './routers/productRouter.js'
 
 const app = express()
+
+app.use('/user', userRouter)
+app.use('/product', productRouter)
 
 app.get('/', (req, res) => {
   res.json({mensage:'Hello World!'})
