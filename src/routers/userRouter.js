@@ -1,4 +1,5 @@
 import  express  from 'express';
+import logger from '../middleware/logger.js'
 
 const router = express.Router()
 
@@ -13,7 +14,8 @@ router.get('/:id', (req, res) =>{
 })
 
 router.post('/', (req, res) =>{
-    res.json({message: 'Está é a rota POST /user/'})
+    const user = req.body
+    res.json({message: 'Está é a rota POST /user/', user})
 });
 
 router.put('/', (req, res) =>{
