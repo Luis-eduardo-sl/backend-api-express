@@ -5,11 +5,11 @@ import {PORT, HOST} from './config.js'
 const app = express()
 
 app.get('/', (req, res) => {
-  res.send('Hello World!')
+  res.json({mensage:'Hello World!'})
 })
 
 app.post('/', (req, res) => {
-  res.send('Hello World! post')
+  res.json({mensage:'Hello World! post'})
 })
 
 app.listen(PORT, () => {
