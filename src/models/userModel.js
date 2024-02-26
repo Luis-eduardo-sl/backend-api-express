@@ -6,8 +6,10 @@ const getAll = async () =>{
     return await prisma.user.findMany()
 }
 
-const create = async () =>{
-    return await prisma.user.create()
+const create = async (data) =>{
+    return await prisma.user.create({
+        data
+    })
 }
 
 const getById = async (id) =>{
