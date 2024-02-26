@@ -24,4 +24,11 @@ const remove = async (id) =>{
     }})
 }
 
-export default {getAll, getById, create, remove}
+const update = async (id, data) =>{
+    return await prisma.user.update({where: {
+        id,
+    } ,data
+})
+}
+
+export default {getAll, getById, create, remove, update}
