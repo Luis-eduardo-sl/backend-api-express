@@ -6,9 +6,9 @@ const getAll = async () =>{
     return await prisma.user.findMany()
 }
 
-const create = async (data) =>{
+const create = async (user) =>{
     return await prisma.user.create({
-        data
+        data: user
     })
 }
 
@@ -24,10 +24,10 @@ const remove = async (id) =>{
     }})
 }
 
-const update = async (id, data) =>{
+const update = async (id, user) =>{
     return await prisma.user.update({where: {
         id,
-    } ,data
+    } ,data: user
 })
 }
 
