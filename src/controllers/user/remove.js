@@ -6,7 +6,7 @@ const remove = async (req, res) =>{
         const users = await userModel.remove(+id)
         
         return res.json({
-            sucess: 'Usuarios atualizado com sucesso!',
+            sucess: 'Usuarios apagado com sucesso!',
             users
         })
     } catch (error) {
