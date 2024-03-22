@@ -10,7 +10,7 @@ const app = express()
 app.use(logger)
 app.use(express.json())
 app.use(cors({
-  origin: ['http://localhost:3000', 'http://localhost:8081', 'http://meusite.com'],
+  origin: ['http://localhost:3000', 'http://localhost:8081', 'http://meusite.com', 'https://n18rjmy-anonymous-8081.exp.direct/'],
   methods: ['GET', 'PUT', 'POST', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }))
