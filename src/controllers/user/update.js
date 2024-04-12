@@ -6,7 +6,7 @@ const update = async (req, res) =>{
         const users = await userModel.update(+id, req.body)
         
         return res.json({
-            sucess: 'Usuarios atualizado com sucesso!',
+            success: 'Usuarios atualizado com sucesso!',
             users
         })
     } catch (error) {

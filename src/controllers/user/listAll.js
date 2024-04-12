@@ -5,7 +5,7 @@ const listAll = async (req, res) =>{
     try{
         const users = await userModel.getAll()
         return res.json({
-            sucess: 'Usuarios listados com sucesso!',
+            success: 'Usuarios listados com sucesso!',
             users
         })
     } catch (error) {

@@ -15,7 +15,7 @@ const create = async (req, res) =>{
         const user = await userModel.create(req.body)
 
         return res.json({
-            sucess: 'Usuarios criado com sucesso!',
+            success: 'Usuarios criado com sucesso!',
             user
         })
     } catch (error) {
