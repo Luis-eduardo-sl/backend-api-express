@@ -2,12 +2,14 @@
 import express from 'express'
 import {PORT, HOST} from './config.js'
 import userRouter from './routers/userRouter.js'
+import authRouter from './routers/authRouter.js'
 import productRouter from './routers/productRouter.js'
 import logger from './middlewares/logger.js'
 import cors from 'cors'
 
 const app = express()
 
+app.use('/auth', authRouter)
 app.use(logger)
 app.use(express.json())
 app.use(cors({
