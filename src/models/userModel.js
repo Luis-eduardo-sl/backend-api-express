@@ -44,7 +44,12 @@ const getAll = async () =>{
 
 const create = async (user) =>{
     return await prisma.user.create({
-        data: user
+        data: user,
+        select:{
+            name: true,
+            email: true,
+            avatar: true,
+        }
     })
 }
 
