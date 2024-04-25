@@ -1,5 +1,6 @@
 import userModel from "../../models/userModel.js";
 import zodErrorFormat from "../../helpers/zodErrorFormat.js"
+import bcrypt from 'bcrypt'
 
 const create = async (req, res) =>{
 
@@ -12,7 +13,8 @@ const create = async (req, res) =>{
                 fields: zodErrorFormat(result.error)
             })
         }
-        const user = await userModel.create(req.body)
+        result .data.pass = await bcrypt.hash(result.data.pass, 10)
+        const user = await userModel.create(result.data)
 
         return res.json({
             success: 'Usuarios criado com sucesso!',

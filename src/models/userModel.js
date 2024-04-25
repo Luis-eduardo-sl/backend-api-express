@@ -20,6 +20,11 @@ const userSchema = z.object({
     })
     .email({message: "Email inválido"})
     .max(500, {message: "O email deve ter no maximo 500 caracteres"}) ,
+    pass: z.string({
+        required_error: "A senha deve ser uma string",
+        invalid_type_error: " A senha deve ser uma string"
+    })
+    .min(6, {message: "A senha deve ter no minimo 6 caracteres"}),
     avatar: z.string({
         required_error: "O avatar é obrigatorio",
         invalid_type_error: "O avatar deve ser uma string"
