@@ -3,6 +3,7 @@ import zodErrorFormat from '../../helpers/zodErrorFormat.js'
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 import { SECRET_KEY } from '../../config.js'
+import sessionModel from '../../models/sessionModel.js'
 
 const login = async (req, res) => {
     try{
@@ -40,6 +41,16 @@ const login = async (req, res) => {
         },
         SECRET_KEY, {
             expiresIn: '3m' 
+        })
+
+        res.cookie('token', token, {httpOnly: true, sameSite:"None", secure: true, maxAge: 24 * 60 * 60 * 1000})
+
+        let date = new Date()
+        date.setHours(data.getHours())
+
+        await sessionModel.create({
+            userId: userFound.id,
+            token
         })
 
         res.json({message: "User Logado!", token})

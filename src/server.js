@@ -6,11 +6,14 @@ import authRouter from './routers/authRouter.js'
 import productRouter from './routers/productRouter.js'
 import logger from './middlewares/logger.js'
 import cors from 'cors'
+import cookieParser from 'cookie-parser'
+
 
 const app = express()
 
 app.use('/auth', authRouter)
 app.use(logger)
+app.use(cookieParser())
 app.use(express.json())
 app.use(cors({
   origin: ['http://localhost:3000', 'http://localhost:8081', 'http://meusite.com', 'https://n18rjmy-anonymous-8081.exp.direct'],
