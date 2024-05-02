@@ -1,6 +1,6 @@
 import sessionModel from "../../models/sessionModel.js"
 
-const logout = async (req, res) => {
+const refreshToken = async (req, res) => {
     try{
         res.json({message: "Logout"})
         res.clearCookie('token', { httpOnly: true, sameSite: 'None', secure: true })
@@ -16,4 +16,4 @@ const logout = async (req, res) => {
         })
     }
 }
-export default logout
+export default refreshToken
