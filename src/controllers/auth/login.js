@@ -40,7 +40,7 @@ const login = async (req, res) => {
             name: userFound.name
         },
         SECRET_KEY, {
-            expiresIn: '3m' 
+            expiresIn: TOKEN_EXPIRES_IN
         })
 
         res.cookie('token', token, {httpOnly: true, sameSite:"None", secure: true, maxAge: 24 * 60 * 60 * 1000})
@@ -53,7 +53,15 @@ const login = async (req, res) => {
             token
         })
 
-        res.json({message: "User Logado!", token})
+        res.json({
+            message: "User Logado!", 
+            token, 
+            user: {
+                id: userFound.id,
+                name: userFound.name,
+                email: userFound.email,
+                avatar: userFound.avatar
+            }})
     } catch (error) {
         console.log(error)
         return res.status(500).json({
