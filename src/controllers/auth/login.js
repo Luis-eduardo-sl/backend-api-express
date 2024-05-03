@@ -2,7 +2,7 @@ import userModel from '../../models/userModel.js'
 import zodErrorFormat from '../../helpers/zodErrorFormat.js'
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
-import { SECRET_KEY } from '../../config.js'
+import { SECRET_KEY, TOKEN_EXPIRES_IN } from '../../config.js'
 import sessionModel from '../../models/sessionModel.js'
 
 const login = async (req, res) => {
